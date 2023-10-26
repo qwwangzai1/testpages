@@ -21,8 +21,19 @@ body {
     color: aliceblue;
     font-size: 3vh;
     transform: rotate(90deg);
-    
-    
+}
+
+.message {
+    position: absolute;
+    text-align: center;
+    left: 20%;
+    top: 30%;
+    width: 60%;
+    padding: 15% 0;
+    font-size: 3vh;
+    transform: rotate(90deg);
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden; 
 }
 
 #hand-zone {

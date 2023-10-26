@@ -70,7 +70,27 @@ function delNode(n) {
     console.log(target);
     pdz.removeChild(target);
 }
-    
+
+function successbox(msg, secs) {
+    var node = $('.message')[0];
+    node.innerText = msg;
+    node.style.color = "chartreuse";
+    node.style.visibility = 'visible';
+    setTimeout("disappear()", secs*1000);
+}
+
+function warnbox(msg, secs) {
+    var node = $('.message')[0];
+    node.innerText = msg;
+    node.style.color = "crimson";
+    node.style.visibility = 'visible';
+    setTimeout("disappear()", secs*1000);
+}
+
+function disappear() {
+    node = $('.message')[0];
+    node.style.visibility = 'hidden';
+}
 
 function pick(n) {
     console.log(n);
@@ -80,16 +100,17 @@ function pick(n) {
         insert(n);
         backs[pos].src = path(n);
         if (ans.length == picked.length) {
-            alert("全对，下一题！");
-            next();
+            successbox("全对，下一题！", 1);
+            setTimeout("next()", 1000);
+            //next();
         } else {
-            alert("对啦！再找找其他的吧！");
+            successbox("对啦！再找找其他的吧！", 0.5);
             expand(pos + 1);
         }
     } else if (ans.includes(n)) {
-        alert("这个已经选过了~");
+        warnbox("这个已经选过了~", 0.5);
     } else {
-        alert("不对，这算诈胡哦！");
+        warnbox("不对，这算诈胡哦！", 0.5);
     }
     
     // append(n);
@@ -183,6 +204,8 @@ function init(hand, result) {
     if (pos == 0) {
         addani();
     }
+
+    successbox('加载完成！', 1)
     console.log("init done!");
 }
 

@@ -87,6 +87,13 @@ function warnbox(msg, secs) {
     setTimeout("disappear()", secs*1000);
 }
 
+function paybox() {
+    var node = $('.message')[0];
+    node.style.color = "chartreuse";
+    node.innerHTML = "<div style='font-size:1.5vh'>觉得还不错，请作者喝杯豆浆</div><br/><img src='./img/pay.png'/><br/> <div style='color: white;font-size:1.5vh;'>(点一下关闭)</div>"
+    node.style.visibility = 'visible';
+}
+
 function disappear() {
     node = $('.message')[0];
     node.style.visibility = 'hidden';
